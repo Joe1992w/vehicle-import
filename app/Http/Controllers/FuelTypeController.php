@@ -21,27 +21,6 @@ class FuelTypeController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  \App\Models\FuelType  $fuelType
@@ -54,37 +33,4 @@ class FuelTypeController extends Controller
         return view('fuel-types.show')->with(compact(['fuel_type', 'vehicles']));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\FuelType  $fuelType
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(FuelType $fuelType)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\FuelType  $fuelType
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, FuelType $fuelType)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\FuelType  $fuelType
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(FuelType $fuelType)
-    {
-        //
-    }
 }
