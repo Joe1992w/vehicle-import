@@ -50,9 +50,7 @@ class VehicleTypeController extends Controller
     public function show(VehicleType $type)
     {
         //
-        $vehicles = Vehicle::whereHas('type', function ($query) use ($type) {
-            $query->where('id', $type->id);
-        })->get();
+        $vehicles = Vehicle::whereType($type)->get();
         return view('types.show')->with(compact(['type', 'vehicles']));
 
     }

@@ -50,9 +50,7 @@ class OwnerController extends Controller
     public function show(Owner $owner)
     {
         //
-        $vehicles = Vehicle::whereHas('owner', function ($query) use ($owner) {
-            $query->where('id', $owner->id);
-        })->get();
+        $vehicles = Vehicle::whereOwner($owner)->get();
         return view('owners.show')->with(compact(['owner', 'vehicles']));
 
     }

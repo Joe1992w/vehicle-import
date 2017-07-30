@@ -50,11 +50,7 @@ class VehicleManufacturerController extends Controller
     public function show(VehicleManufacturer $manufacturer)
     {
         //
-        $vehicles = Vehicle::whereHas('model', function ($query) use ($manufacturer) {
-            $query->whereHas('manufacturer', function ($query) use ($manufacturer) {
-                $query->where('id', $manufacturer->id);
-            });
-        })->get();
+        $vehicles = Vehicle::whereManufacturer($manufacturer)->get();
         return view('manufacturers.show')->with(compact(['manufacturer', 'vehicles']));
     }
 

@@ -50,9 +50,7 @@ class FuelTypeController extends Controller
     public function show(FuelType $fuel_type)
     {
         //
-        $vehicles = Vehicle::whereHas('fuelType', function ($query) use ($fuel_type) {
-            $query->where('id', $fuel_type->id);
-        })->get();
+        $vehicles = Vehicle::whereFuelType($fuel_type)->get();
         return view('fuel-types.show')->with(compact(['fuel_type', 'vehicles']));
     }
 

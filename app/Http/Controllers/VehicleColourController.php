@@ -49,11 +49,8 @@ class VehicleColourController extends Controller
      */
     public function show(VehicleColour $colour)
     {
-        $vehicles = Vehicle::whereHas('colour', function ($query) use ($colour) {
-            $query->where('id', $colour->id);
-        })->get();
+        $vehicles = Vehicle::whereColour($colour)->get();
         return view('colours.show')->with(compact(['colour', 'vehicles']));
-        
     }
 
     /**

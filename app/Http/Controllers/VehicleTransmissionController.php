@@ -50,9 +50,7 @@ class VehicleTransmissionController extends Controller
     public function show(VehicleTransmission $transmission)
     {
         //
-        $vehicles = Vehicle::whereHas('transmission', function ($query) use ($transmission) {
-            $query->where('id', $transmission->id);
-        })->get();
+        $vehicles = Vehicle::whereTransmission($transmission)->get();
         return view('transmissions.show')->with(compact(['transmission', 'vehicles']));
     }
 
