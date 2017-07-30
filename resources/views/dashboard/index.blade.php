@@ -3,15 +3,17 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
-
-                <div class="panel-body">
-                    You are logged in!
-                </div>
+        @foreach($stats as $name => $stat)
+            <div class="col-sm-4 col-md-3">
+                <a href="{{ $stat['url'] }}" class="stat">
+                    <div class="icon">
+                        <i class="fa fa-{{ $stat['icon'] }}" aria-hidden="true"></i>
+                        {{ $name }}
+                    </div>
+                    {{ $stat['value'] }}
+                </a>
             </div>
-        </div>
+        @endforeach
     </div>
 </div>
 @endsection
