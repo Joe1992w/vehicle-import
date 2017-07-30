@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Owner;
+use App\Models\Vehicle;
 use Illuminate\Http\Request;
 
 class OwnerController extends Controller
@@ -15,6 +16,8 @@ class OwnerController extends Controller
     public function index()
     {
         //
+        $owners = Owner::with('company', 'vehicles')->orderBy('name')->paginate(10);
+        return view('owners.index')->with(compact('owners'));
     }
 
     /**
@@ -47,6 +50,11 @@ class OwnerController extends Controller
     public function show(Owner $owner)
     {
         //
+        $vehicles = Vehicle::whereHas('owner', function ($query) use ($owner) {
+            $query->where('id', $owner->id);
+        })->get();
+        return view('owners.show')->with(compact(['owner', 'vehicles']));
+
     }
 
     /**

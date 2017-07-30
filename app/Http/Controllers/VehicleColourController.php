@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\VehicleColour;
+use App\Models\Vehicle;
 use Illuminate\Http\Request;
 
 class VehicleColourController extends Controller
@@ -15,6 +16,8 @@ class VehicleColourController extends Controller
     public function index()
     {
         //
+        $colours = VehicleColour::orderBy('name')->paginate(10);
+        return view('colours.index')->with(compact('colours'));
     }
 
     /**
@@ -44,9 +47,13 @@ class VehicleColourController extends Controller
      * @param  \App\Models\VehicleColour  $vehicleColour
      * @return \Illuminate\Http\Response
      */
-    public function show(VehicleColour $vehicleColour)
+    public function show(VehicleColour $colour)
     {
-        //
+        $vehicles = Vehicle::whereHas('colour', function ($query) use ($colour) {
+            $query->where('id', $colour->id);
+        })->get();
+        return view('colours.show')->with(compact(['colour', 'vehicles']));
+        
     }
 
     /**

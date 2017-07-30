@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\VehicleType;
+use App\Models\Vehicle;
 use Illuminate\Http\Request;
 
 class VehicleTypeController extends Controller
@@ -15,6 +16,8 @@ class VehicleTypeController extends Controller
     public function index()
     {
         //
+        $types = VehicleType::orderBy('name')->paginate(10);
+        return view('types.index')->with(compact('types'));
     }
 
     /**
@@ -44,9 +47,14 @@ class VehicleTypeController extends Controller
      * @param  \App\Models\VehicleType  $vehicleType
      * @return \Illuminate\Http\Response
      */
-    public function show(VehicleType $vehicleType)
+    public function show(VehicleType $type)
     {
         //
+        $vehicles = Vehicle::whereHas('type', function ($query) use ($type) {
+            $query->where('id', $type->id);
+        })->get();
+        return view('types.show')->with(compact(['type', 'vehicles']));
+
     }
 
     /**

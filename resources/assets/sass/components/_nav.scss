@@ -1,0 +1,46 @@
+.navbar {
+	ul.nav {
+		li{
+			position: relative;
+
+			&.has-children {
+				&::after {
+					content: '\F0D7';
+					font-family: FontAwesome;
+					right: 0px;
+					top: 50%;
+					position: absolute;
+					transform: translateY(-50%);
+				}
+				ul {
+					list-style: none;
+					padding: 0 20px 10px 20px;
+					margin: 0;
+					position: absolute;
+					display: none;
+					background-color: $navbar-default-bg;
+					border: solid 1px #d3e0e9;
+					border-top: none;
+
+					li {
+						margin-bottom: 5px;
+
+						a {
+							color: #777;
+
+							&:hover {
+								color: #333;
+								text-decoration: none;
+							}
+						}
+					}
+				}
+				&:hover {
+					ul {
+						display: block;
+					}
+				}
+			}
+		}
+	}
+}

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\VehicleTransmission;
+use App\Models\Vehicle;
 use Illuminate\Http\Request;
 
 class VehicleTransmissionController extends Controller
@@ -15,6 +16,8 @@ class VehicleTransmissionController extends Controller
     public function index()
     {
         //
+        $transmissions = VehicleTransmission::orderBy('name')->paginate(10);
+        return view('transmissions.index')->with(compact('transmissions'));
     }
 
     /**
@@ -44,9 +47,13 @@ class VehicleTransmissionController extends Controller
      * @param  \App\Models\VehicleTransmission  $vehicleTransmission
      * @return \Illuminate\Http\Response
      */
-    public function show(VehicleTransmission $vehicleTransmission)
+    public function show(VehicleTransmission $transmission)
     {
         //
+        $vehicles = Vehicle::whereHas('transmission', function ($query) use ($transmission) {
+            $query->where('id', $transmission->id);
+        })->get();
+        return view('transmissions.show')->with(compact(['transmission', 'vehicles']));
     }
 
     /**

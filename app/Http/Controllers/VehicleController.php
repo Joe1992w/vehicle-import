@@ -15,6 +15,8 @@ class VehicleController extends Controller
     public function index()
     {
         //
+        $vehicles = Vehicle::with('model', 'model.manufacturer', 'owner')->paginate(10);
+        return view('vehicles.index')->with(compact('vehicles'));
     }
 
     /**
@@ -47,6 +49,7 @@ class VehicleController extends Controller
     public function show(Vehicle $vehicle)
     {
         //
+        return view('vehicles.show')->with(compact('vehicle'));
     }
 
     /**

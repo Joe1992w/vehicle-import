@@ -11,10 +11,21 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Every route requires the user to be authenticated
+Route::middleware(['auth'])->group(function () {
+   Route::get('/', 'DashboardController@index')->name('dashboard.index');
+   Route::resource('vehicles', 'VehicleController');
+   Route::resource('transmissions', 'VehicleTransmissionController');
+   Route::resource('colours', 'VehicleColourController');
+   Route::resource('fuel-types', 'FuelTypeController');
+   Route::resource('types', 'VehicleTypeController');
+   Route::resource('manufacturers', 'VehicleManufacturerController');
+   Route::resource('models', 'VehicleModelController');
+   Route::resource('owners', 'OwnerController');
+   Route::resource('companies', 'CompanyController');
+});
+

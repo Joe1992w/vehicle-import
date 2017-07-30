@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Console\\Commands\\ImportVehicles' => $baseDir . '/app/Console/Commands/ImportVehicles.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
@@ -14,6 +15,7 @@ return array(
     'App\\Http\\Controllers\\Auth\\ResetPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ResetPasswordController.php',
     'App\\Http\\Controllers\\CompanyController' => $baseDir . '/app/Http/Controllers/CompanyController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+    'App\\Http\\Controllers\\DashboardController' => $baseDir . '/app/Http/Controllers/DashboardController.php',
     'App\\Http\\Controllers\\FuelTypeController' => $baseDir . '/app/Http/Controllers/FuelTypeController.php',
     'App\\Http\\Controllers\\OwnerController' => $baseDir . '/app/Http/Controllers/OwnerController.php',
     'App\\Http\\Controllers\\VehicleColourController' => $baseDir . '/app/Http/Controllers/VehicleColourController.php',
@@ -30,6 +32,7 @@ return array(
     'App\\Models\\Company' => $baseDir . '/app/Models/Company.php',
     'App\\Models\\FuelType' => $baseDir . '/app/Models/FuelType.php',
     'App\\Models\\Owner' => $baseDir . '/app/Models/Owner.php',
+    'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Models\\Vehicle' => $baseDir . '/app/Models/Vehicle.php',
     'App\\Models\\VehicleColour' => $baseDir . '/app/Models/VehicleColour.php',
     'App\\Models\\VehicleManufacturer' => $baseDir . '/app/Models/VehicleManufacturer.php',
@@ -41,7 +44,6 @@ return array(
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
-    'App\\User' => $baseDir . '/app/User.php',
     'Barryvdh\\Debugbar\\Console\\ClearCommand' => $vendorDir . '/barryvdh/laravel-debugbar/src/Console/ClearCommand.php',
     'Barryvdh\\Debugbar\\Console\\PublishCommand' => $vendorDir . '/barryvdh/laravel-debugbar/src/Console/PublishCommand.php',
     'Barryvdh\\Debugbar\\Controllers\\AssetController' => $vendorDir . '/barryvdh/laravel-debugbar/src/Controllers/AssetController.php',

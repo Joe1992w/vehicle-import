@@ -301,6 +301,7 @@ class ComposerStaticInite1831fee50f1f55f1dda7b65a4faf8f2
     );
 
     public static $classMap = array (
+        'App\\Console\\Commands\\ImportVehicles' => __DIR__ . '/../..' . '/app/Console/Commands/ImportVehicles.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
@@ -309,6 +310,7 @@ class ComposerStaticInite1831fee50f1f55f1dda7b65a4faf8f2
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\CompanyController' => __DIR__ . '/../..' . '/app/Http/Controllers/CompanyController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\DashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/DashboardController.php',
         'App\\Http\\Controllers\\FuelTypeController' => __DIR__ . '/../..' . '/app/Http/Controllers/FuelTypeController.php',
         'App\\Http\\Controllers\\OwnerController' => __DIR__ . '/../..' . '/app/Http/Controllers/OwnerController.php',
         'App\\Http\\Controllers\\VehicleColourController' => __DIR__ . '/../..' . '/app/Http/Controllers/VehicleColourController.php',
@@ -325,6 +327,7 @@ class ComposerStaticInite1831fee50f1f55f1dda7b65a4faf8f2
         'App\\Models\\Company' => __DIR__ . '/../..' . '/app/Models/Company.php',
         'App\\Models\\FuelType' => __DIR__ . '/../..' . '/app/Models/FuelType.php',
         'App\\Models\\Owner' => __DIR__ . '/../..' . '/app/Models/Owner.php',
+        'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\Vehicle' => __DIR__ . '/../..' . '/app/Models/Vehicle.php',
         'App\\Models\\VehicleColour' => __DIR__ . '/../..' . '/app/Models/VehicleColour.php',
         'App\\Models\\VehicleManufacturer' => __DIR__ . '/../..' . '/app/Models/VehicleManufacturer.php',
@@ -336,7 +339,6 @@ class ComposerStaticInite1831fee50f1f55f1dda7b65a4faf8f2
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
-        'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'Barryvdh\\Debugbar\\Console\\ClearCommand' => __DIR__ . '/..' . '/barryvdh/laravel-debugbar/src/Console/ClearCommand.php',
         'Barryvdh\\Debugbar\\Console\\PublishCommand' => __DIR__ . '/..' . '/barryvdh/laravel-debugbar/src/Console/PublishCommand.php',
         'Barryvdh\\Debugbar\\Controllers\\AssetController' => __DIR__ . '/..' . '/barryvdh/laravel-debugbar/src/Controllers/AssetController.php',

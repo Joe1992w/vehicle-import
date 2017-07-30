@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\VehicleManufacturer;
+use App\Models\Vehicle;
 use Illuminate\Http\Request;
 
 class VehicleManufacturerController extends Controller
@@ -15,6 +16,8 @@ class VehicleManufacturerController extends Controller
     public function index()
     {
         //
+        $manufacturers = VehicleManufacturer::with('models.vehicles')->orderBy('name')->paginate(10);
+        return view('manufacturers.index')->with(compact('manufacturers'));
     }
 
     /**
@@ -44,9 +47,15 @@ class VehicleManufacturerController extends Controller
      * @param  \App\Models\VehicleManufacturer  $vehicleManufacturer
      * @return \Illuminate\Http\Response
      */
-    public function show(VehicleManufacturer $vehicleManufacturer)
+    public function show(VehicleManufacturer $manufacturer)
     {
         //
+        $vehicles = Vehicle::whereHas('model', function ($query) use ($manufacturer) {
+            $query->whereHas('manufacturer', function ($query) use ($manufacturer) {
+                $query->where('id', $manufacturer->id);
+            });
+        })->get();
+        return view('manufacturers.show')->with(compact(['manufacturer', 'vehicles']));
     }
 
     /**

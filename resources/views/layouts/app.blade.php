@@ -8,10 +8,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'xDesign Challenge') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <div id="app">
@@ -29,14 +30,30 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ config('app.name', 'xDesign Challenge') }}
                     </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                        <li class="has-children">
+                            <a href="{{ route('vehicles.index') }}">Vehicles</a>
+                            <ul>
+                                <li><a href="{{ route('colours.index') }}">Colours</a></li>
+                                <li><a href="{{ route('fuel-types.index') }}">Fuel Types</a></li>
+                                <li><a href="{{ route('transmissions.index') }}">Transmissions</a></li>
+                                <li><a href="{{ route('types.index') }}">Vehicle Types</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="{{ route('manufacturers.index') }}">Manufacturers</a></li>
+                        <li><a href="{{ route('models.index') }}">Models</a></li>
+                        <li class="has-children">
+                            <a href="{{ route('owners.index') }}">Owners</a>
+                            <ul>
+                                <li><a href="{{ route('companies.index') }}">Companies</a></li>
+                            </ul>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
